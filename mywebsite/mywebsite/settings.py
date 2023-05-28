@@ -38,6 +38,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "myapp",
+    "xlapp",
+    "funky_sheets",
+    
 ]
 
 MIDDLEWARE = [
@@ -55,7 +58,8 @@ ROOT_URLCONF = "mywebsite.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [ BASE_DIR / 'myapp/template' ],
+        "DIRS": [ BASE_DIR / 'myapp/template',
+                  BASE_DIR / 'xlapp/template',],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -106,7 +110,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Bangkok"
 
 USE_I18N = True
 
@@ -117,6 +121,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = "static/"
+STATICFILES_DIRS = [BASE_DIR / "static",
+                    BASE_DIR / "myapp" / "static",
+                    BASE_DIR / "xlapp" / "static",]
+STATIC_ROOT = BASE_DIR / "static_cdn" / "static_root"
+MEDIA_URL = "media/"
+MEDIA_ROOT = BASE_DIR / "static_cdn" / "media_root"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
